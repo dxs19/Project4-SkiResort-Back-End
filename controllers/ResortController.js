@@ -1,4 +1,4 @@
-const { Resort } = require('../models')
+const { Resort, Comment, User } = require('../models')
 
 const getAllResorts = async (req, res) => {
     try {
@@ -13,6 +13,9 @@ const getAllResorts = async (req, res) => {
 const getResortById = async (req, res) => {
     try {
         const resort = await Resort.findByPk(req.params.resort_id, {
+            include: {
+                model: Comment
+            }
         })
         res.send(resort)
     } catch (error) {
