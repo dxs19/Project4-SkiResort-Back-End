@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       review: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       longitude: {
         allowNull: true,

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   Resort.init({
     name: DataTypes.STRING,
     location: DataTypes.STRING,
-    review: DataTypes.STRING,
+    review: DataTypes.TEXT,
     longitude: DataTypes.STRING,
     latitude: DataTypes.STRING,
     height: DataTypes.STRING,
