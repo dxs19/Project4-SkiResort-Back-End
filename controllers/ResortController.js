@@ -15,6 +15,7 @@ const getResortById = async (req, res) => {
         const resort = await Resort.findByPk(req.params.resort_id, {
             include: {
                 model: Comment
+
             }
         })
         res.send(resort)
