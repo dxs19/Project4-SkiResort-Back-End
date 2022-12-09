@@ -28,8 +28,34 @@ const addResort = async (req, res) => {
         throw error
     }
 }
+
+const deleteResort = async (req, res) => {
+    console.log(req.body)
+    try {
+        let resortId = parseInt(req.params.resort_id)
+        await Resort.destroy({ where: { id: resortId } })
+        res.send({ message: 'Resort Deleted' })
+    } catch (error) {
+        throw error
+    }
+}
+
+const updateResort = async (req, res) => {
+    try {
+        let resortId = parseInt(req.params.resort_id)
+        let updatedResort = await Resort.update(req.body, {
+            where: { id: resortId },
+            returning: true
+        })
+        res.send(updatedResort)
+    } catch (error) {
+        throw error
+    }
+}
 module.exports = {
     getAllResorts,
     getResortById,
-    addResort
+    addResort,
+    updateResort,
+    deleteResort
 }
