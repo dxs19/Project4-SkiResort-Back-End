@@ -20,7 +20,16 @@ const getResortById = async (req, res) => {
     }
 }
 
+const addResort = async (req, res) => {
+    try {
+        const post = await Resort.create({ ...req.body })
+        res.send(post)
+    } catch (error) {
+        throw error
+    }
+}
 module.exports = {
     getAllResorts,
-    getResortById
+    getResortById,
+    addResort
 }
