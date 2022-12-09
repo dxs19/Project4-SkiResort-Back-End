@@ -10,6 +10,8 @@ const getAllUsers = async (req, res) => {
     }
 }
 
+
+
 const getUserById = async (req, res) => {
     try {
         const user = await User.findByPk(req.params.user_id, {

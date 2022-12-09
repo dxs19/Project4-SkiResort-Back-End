@@ -10,6 +10,17 @@ const getAllResorts = async (req, res) => {
     }
 }
 
+const getResortById = async (req, res) => {
+    try {
+        const resort = await Resort.findByPk(req.params.resort_id, {
+        })
+        res.send(resort)
+    } catch (error) {
+        throw error
+    }
+}
+
 module.exports = {
-    getAllResorts
+    getAllResorts,
+    getResortById
 }
