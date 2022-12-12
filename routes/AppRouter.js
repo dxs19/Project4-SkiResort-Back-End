@@ -9,4 +9,5 @@ Router.use('/users', UserRouter)
 Router.use('/resorts', ResortRouter)
 Router.use('/comments', CommentRouter)
 
+
 module.exports = Router

@@ -34,7 +34,6 @@ const addResort = async (req, res) => {
 }
 
 const deleteResort = async (req, res) => {
-    console.log(req.body)
     try {
         let resortId = parseInt(req.params.resort_id)
         await Resort.destroy({ where: { id: resortId } })
