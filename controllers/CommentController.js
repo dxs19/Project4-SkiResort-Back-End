@@ -59,12 +59,34 @@ const deleteComment = async (req, res) => {
         throw error
     }
 }
-
+const updateCommentById = async (req, res) => {
+    try {
+        let commentId = parseInt(req.params.comment_id)
+        let updatedComment = await Comment.update(req.body, {
+            where: { id: commentId },
+            returning: true
+        })
+        res.send(updatedComment)
+    } catch (error) {
+        throw error
+    }
+}
+const getCommentById = async (req, res) => {
+    try {
+        const commentById = await Comment.findByPk(req.params.comment_id, {
+        })
+        res.send(commentById)
+    } catch (error) {
+        throw error
+    }
+}
 
 module.exports = {
     getAllComments,
     getComment,
     updateComment,
     addComment,
-    deleteComment
+    deleteComment,
+    getCommentById,
+    updateCommentById
 }
